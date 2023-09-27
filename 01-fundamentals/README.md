@@ -131,7 +131,7 @@ settings.json
 - ES7 Snippets
   - rafce (arrow func with export)
   - rfce (regular func with export )
-  - same as the file name
+  - component name -> same as the file name
   - react auto import
     - uncheck
     - React Snippets › Settings: Import React On Top
@@ -180,7 +180,7 @@ const Greeting = () => {
 ```js
 return <React.Fragment>...rest of the return</React.Fragment>;
 
-// shorthand
+// shorthand -> Syntactic Sugar for React.Frangment
 
 return <>...rest of the return</>;
 ```
@@ -209,7 +209,7 @@ return (
 return <div className="someValue">hello</div>;
 ```
 
-- close every element
+- close every element -> specially self closing one
 
 ```js
 return <img />;
@@ -302,13 +302,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(<BookList />);
 ```
-
-- in search engine type - 'amazon best selling books'
-  [Amazon Best Sellers](https://www.amazon.com/Best-Sellers-Books/zgbs/books/)
-- DON'T NEED TO BUY ANYTHING !!!
-- NOT AN AFFILIATE LINK !!!!
-- choose a book
-- copy image, title and author
 
 ```js
 import React from "react";
@@ -431,25 +424,9 @@ const Book = () => {
 
 #### Local Images (Public Folder)
 
-- Optional Video !!!
-
 - external images (hosted on different server) - just need an url
 - local images (public folder) - less performant
-- local images (src folder) - better solution for assets,
-  since under the hood they get optimized.
-
-- save image (Save Image As....)
-- create images folder in public
-- copy/paste image
-- rename (optional)
-- replace url in the src - './images/imageName.extension'
-- './' because assets are on the same server
-
-```js
-const Image = () => (
-  <img src="./images/book-1.jpg" alt="Interesting Facts For Curious Minds" />
-);
-```
+- local images (src folder) - better solution for assets, since under the hood they get optimized.
 
 - whatever assets we place in public - instantly available
 - domain(localhost)/asset
@@ -479,11 +456,9 @@ const Author = () => (
 }
 ```
 
-- external libraries use inline css,
-  so if you want to make some changes,
-  reference the library docs and elements tab
+- external libraries use inline css, so if you want to make some changes, reference the library docs and elements tab
 
-- alternative option
+- alternative option for inline style
 
 ```js
 const Author = () => {
@@ -496,41 +471,8 @@ const Author = () => {
 };
 ```
 
-- FOR THE MOST PART, MULTIPLE APPROACHES AVAILABLE !!!
-- AS LONG AS THE RESULT IS THE SAME, REALLY COMES DOWN TO PREFERENCE !!!!
-
-#### JSX - Javascript
-
-- refactor to single book component (personal preference)
-- remove inline css
-
-```js
-const Book = () => {
-  return (
-    <article className="book">
-      <img
-        src="./images/book-1.jpg"
-        alt="Interesting Facts For Curious Minds"
-      />
-      <h2>Interesting Facts For Curious Minds</h2>
-      <h4>Jordan Moore </h4>
-    </article>
-  );
-};
-```
-
-```css
-.book h4 {
-  color: #617d98;
-  font-size: 0.75rem;
-  margin-top: 0.5rem;
-  letter-spacing: 2px;
-}
-```
-
 - {} in JSX means going back to JS Land
-- value inside must be an expression (return value),
-  can't be a statement
+- value inside must be an expression (return value), can't be a statement
 
 ```js
 const author = "Jordan Moore";
@@ -552,36 +494,6 @@ const Book = () => {
 };
 ```
 
-- toggle line comment Edit/Toggle Line Comment
-
-#### Props - Initial Setup
-
-- refactor/clean up
-
-```js
-const author = "Jordan Moore";
-const title = "Interesting Facts For Curious Minds";
-const img = "./images/book-1.jpg";
-
-function BookList() {
-  return (
-    <section className="booklist">
-      <Book />
-      <Book />
-    </section>
-  );
-}
-const Book = () => {
-  return (
-    <article className="book">
-      <img src={img} alt={title} />
-      <h2>{title}</h2>
-      <h4>{author} </h4>
-    </article>
-  );
-};
-```
-
 ```js
 // parameters
 const someFunc = (param1, param2) => {
@@ -592,7 +504,7 @@ someFunc("job", "developer");
 ```
 
 ```js
-const Book = (props) => {
+const Book = props => {
   console.log(props);
   return (
     <article className="book">
@@ -619,7 +531,7 @@ function BookList() {
     </section>
   );
 }
-const Book = (props) => {
+const Book = props => {
   console.log(props);
   return (
     <article className="book">
@@ -643,55 +555,7 @@ function BookList() {
     </section>
   );
 }
-const Book = (props) => {
-  console.log(props);
-  return (
-    <article className="book">
-      <img src={props.img} alt={props.title} />
-      <h2>{props.title}</h2>
-      <h4>{props.author} </h4>
-    </article>
-  );
-};
-```
-
-#### Props - Somewhat Dynamic Setup
-
-- setup an object
-- refactor vars to properties
-- copy/paste and rename
-- get values for second book
-- setup props
-
-```js
-const firstBook = {
-  author: "Jordan Moore",
-  title: "Interesting Facts For Curious Minds",
-  img: "./images/book-1.jpg",
-};
-const secondBook = {
-  author: "James Clear",
-  title: "Atomic Habits",
-  img: "https://images-na.ssl-images-amazon.com/images/I/81wgcld4wxL._AC_UL900_SR900,600_.jpg",
-};
-
-function BookList() {
-  return (
-    <section className="booklist">
-      <Book
-        author={firstBook.author}
-        title={firstBook.title}
-        img={firstBook.img}
-      />
-      <Book
-        author={secondBook.author}
-        title={secondBook.title}
-        img={secondBook.img}
-      />
-    </section>
-  );
-}
-const Book = (props) => {
+const Book = props => {
   console.log(props);
   return (
     <article className="book">
@@ -705,33 +569,11 @@ const Book = (props) => {
 
 #### Access Props - Multiple Approaches
 
-- there is no right or wrong - again preference !!!
-
-- Destructuring (object)
-  [JS Nuggets - Destructuring (object)](https://www.youtube.com/watch?v=i4vhNKihfto&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=8&t=1s)
-
-- destructuring in Vanilla JS
-- saves time/typing
-- pull out the properties
-- don't need to reference object anymore
-
-```js
-const someObject = {
-  name: "john",
-  job: "developer",
-  location: "florida",
-};
-
-console.log(someObject.name);
-const { name, job } = someObject;
-console.log(job);
-```
-
 - no need for all the props.propName
 - destructure inside component
 
 ```js
-const Book = (props) => {
+const Book = props => {
   const { img, title, author } = props;
   return (
     <article className="book">
@@ -792,7 +634,7 @@ function BookList() {
 const Book = ({ img, title, author, children }) => {
   // rest of the logic
 };
-const Book = (props) => {
+const Book = props => {
   const { img, title, author, children } = props;
   console.log(props);
   return (
@@ -844,7 +686,7 @@ function BookList() {
   return <section className="booklist"></section>;
 }
 
-const Book = (props) => {
+const Book = props => {
   const { img, title, author } = props;
 
   return (
@@ -869,7 +711,7 @@ function BookList() {
 
 ```js
 const names = ["john", "peter", "susan"];
-const newNames = names.map((name) => {
+const newNames = names.map(name => {
   console.log(name);
   return <h1>{name}</h1>;
 });
@@ -881,16 +723,11 @@ function BookList() {
 
 #### Proper List
 
-- remove names and newNames
-
 ```js
 function BookList() {
   return (
     <section className="booklist">
-      {books.map((book) => {
-        console.log(book);
-
-        // return 'hello';
+      {books.map(book => {
         return (
           <div>
             <h2>{book.title}</h2>
@@ -909,8 +746,7 @@ function BookList() {
 function BookList() {
   return (
     <section className="booklist">
-      {books.map((book) => {
-        console.log(book);
+      {books.map(book => {
         const { img, title, author } = book;
         return <Book img={img} title={title} author={author} />;
       })}
@@ -942,7 +778,7 @@ const books = [
 function BookList() {
   return (
     <section className="booklist">
-      {books.map((book) => {
+      {books.map(book => {
         console.log(book);
         const { img, title, author, id } = book;
         return <Book book={book} key={id} />;
@@ -952,7 +788,7 @@ function BookList() {
 }
 ```
 
-- you will see index,but it's not advised if the list is changing
+- you will see index, but it's not advised if the list is changing
 
 ```js
 function BookList() {
@@ -979,7 +815,7 @@ function BookList() {
 function BookList() {
   return (
     <section className="booklist">
-      {books.map((book) => {
+      {books.map(book => {
         console.log(book);
         const { img, title, author } = book;
         return <Book book={book} />;
@@ -988,7 +824,7 @@ function BookList() {
   );
 }
 
-const Book = (props) => {
+const Book = props => {
   const { img, title, author } = props.book;
 
   return (
@@ -1040,14 +876,14 @@ console.log(newObject);
 function BookList() {
   return (
     <section className="booklist">
-      {books.map((book) => {
+      {books.map(book => {
         return <Book {...book} key={book.id} />;
       })}
     </section>
   );
 }
 
-const Book = (props) => {
+const Book = props => {
   const { img, title, author } = props;
   return (
     <article className="book">
@@ -1093,7 +929,6 @@ const EventExamples = () => {
 ```
 
 - [React Events](https://reactjs.org/docs/events.html)
-- no need to memorize them(idea is the same)
 - most common
   - onClick (click events)
   - onSubmit (submit form )
@@ -1104,7 +939,7 @@ function BookList() {
   return (
     <section className="booklist">
       <EventExamples />
-      {books.map((book) => {
+      {books.map(book => {
         return <Book {...book} key={book.id} />;
       })}
     </section>
@@ -1139,7 +974,7 @@ const EventExamples = () => {
 
 ```js
 const EventExamples = () => {
-  const handleFormInput = (e) => {
+  const handleFormInput = e => {
     console.log(e);
     // e.target - element
     console.log(`Input Name : ${e.target.name}`);
@@ -1149,7 +984,7 @@ const EventExamples = () => {
   const handleButtonClick = () => {
     alert("handle button click");
   };
-  const handleFormSubmission = (e) => {
+  const handleFormSubmission = e => {
     e.preventDefault();
     console.log("form submitted");
   };
@@ -1208,7 +1043,7 @@ const EventExamples = () => {
         <input
           type="text"
           name="example"
-          onChange={(e) => console.log(e.target.value)}
+          onChange={e => console.log(e.target.value)} // here
           style={{ margin: "1rem 0" }}
         />
       </form>
@@ -1227,14 +1062,14 @@ const EventExamples = () => {
 function BookList() {
   return (
     <section className="booklist">
-      {books.map((book) => {
+      {books.map(book => {
         return <Book {...book} key={book.id} />;
       })}
     </section>
   );
 }
 
-const Book = (props) => {
+const Book = props => {
   const { img, title, author } = props;
   const displayTitle = () => {
     console.log(title);
@@ -1256,7 +1091,7 @@ const Book = (props) => {
 #### Prop Drilling
 
 - react data flow - can only pass props down
-- alternatives Context API, redux, other state libraries
+- alternatives- Context API, redux, other state libraries
 
 ```js
 function BookList() {
@@ -1266,14 +1101,14 @@ function BookList() {
   };
   return (
     <section className="booklist">
-      {books.map((book) => {
+      {books.map(book => {
         return <Book {...book} key={book.id} displayValue={displayValue} />;
       })}
     </section>
   );
 }
 
-const Book = (props) => {
+const Book = props => {
   const { img, title, author, displayValue } = props;
 
   return (
@@ -1300,21 +1135,21 @@ const Book = (props) => {
 
 ```js
 const BookList = () => {
-  const getBook = (id) => {
-    const book = books.find((book) => book.id === id);
+  const getBook = id => {
+    const book = books.find(book => book.id === id);
     console.log(book);
   };
 
   return (
     <section className="booklist">
-      {books.map((book) => {
+      {books.map(book => {
         return <Book {...book} key={book.id} getBook={getBook} />;
       })}
     </section>
   );
 };
 
-const Book = (props) => {
+const Book = props => {
   const { img, title, author, getBook, id } = props;
   // console.log(props);
 
@@ -1334,7 +1169,7 @@ const Book = (props) => {
 - first option - setup wrapper
 
 ```js
-const Book = (props) => {
+const Book = props => {
   const { img, title, author, getBook, id } = props;
   // console.log(props);
   const getSingleBook = () => {
@@ -1355,7 +1190,7 @@ const Book = (props) => {
 - second option - wrap in the anonymous arrow function
 
 ```js
-const Book = (props) => {
+const Book = props => {
   const { img, title, author, getBook, id } = props;
   // console.log(props);
   const getSingleBook = () => {
@@ -1381,14 +1216,14 @@ const Book = (props) => {
 function BookList() {
   return (
     <section className="booklist">
-      {books.map((book) => {
+      {books.map(book => {
         return <Book {...book} key={book.id} />;
       })}
     </section>
   );
 }
 
-const Book = (props) => {
+const Book = props => {
   const { img, title, author } = props;
 
   return (
@@ -1428,7 +1263,7 @@ const books = [
 - two flavors named and default exports
 
   - with named exports names MUST match
-  - with default exports,can rename but only one per file
+  - with default exports, can rename but only one per file
 
 - named export
 
@@ -1458,7 +1293,7 @@ import { books } from "./books";
 - default export
 
 ```js
-const Book = (props) => {
+const Book = props => {
   const { img, title, author } = props;
 
   return (
@@ -1536,7 +1371,7 @@ const BookList = () => {
   );
 };
 
-const Book = (props) => {
+const Book = props => {
   const { img, title, author, number } = props;
 
   return (
@@ -1589,7 +1424,7 @@ function BookList() {
     <>
       <h1>amazon best sellers</h1>
       <section className="booklist">
-        {books.map((book) => {
+        {books.map(book => {
           return <Book {...book} key={book.id} />;
         })}
       </section>
