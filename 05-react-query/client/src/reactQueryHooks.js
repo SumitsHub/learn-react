@@ -28,3 +28,34 @@ export const useCreateTask = () => {
   });
   return { createTask };
 };
+
+export const useEditTask = () => {
+  const queryClient = useQueryClient();
+  const { mutate: editTask } = useMutation({
+    mutationFn: ({ taskId, isDone }) => {
+      return customFetch.patch(`/${taskId}`, { isDone });
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["tasks"],
+      });
+    },
+  });
+  return { editTask };
+};
+
+export const useDeleteTask = () => {
+  const queryClient = useQueryClient();
+  const { mutate: deleteTask } = useMutation({
+    mutationFn: taskId => {
+      return customFetch.delete(`/${taskId}`);
+    },
+    onSuccess: () => {
+      toast.success("Task deleted");
+      queryClient.invalidateQueries({
+        queryKey: ["tasks"],
+      });
+    },
+  });
+  return { deleteTask };
+};
