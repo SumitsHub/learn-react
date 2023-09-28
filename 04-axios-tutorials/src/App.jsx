@@ -1,7 +1,9 @@
+import Title from "./components/Title";
+
 function App() {
   return (
     <main>
-      <h2>Axios Tutorials</h2>
+      <Title />
     </main>
   );
 }
