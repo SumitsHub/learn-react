@@ -15,3 +15,5 @@ const MyComponent = React.memo(function MyComponent(props) {
 ```
 
 - The above component will only rerender if it's input props changed, not even if it's parent level state changes
+
+- Gotcha with memo -> when we pass function as prop to component, then memoised component will also rerender if parent component rerenders
