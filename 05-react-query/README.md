@@ -207,3 +207,19 @@ const handleSubmit = e => {
   createTask(newItemName);
 };
 ```
+
+### useMutation Helper Options
+
+useMutation comes with some helper options that allow quick and easy side-effects at any stage during the mutation lifecycle. These come in handy for both invalidating and refetching queries after mutations
+
+```js
+const { mutate: createTask, isLoading } = useMutation({
+  mutationFn: taskTitle => customFetch.post("/", { title: taskTitle }),
+  onSuccess: () => {
+    // do something
+  },
+  onError: () => {
+    // do something
+  },
+});
+```

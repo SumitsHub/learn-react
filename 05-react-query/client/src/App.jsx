@@ -11,13 +11,11 @@ const defaultItems = [
   { id: nanoid(), title: "take a nap", isDone: false },
 ];
 const App = () => {
-  const [items, setItems] = useState(defaultItems);
-
   return (
     <section className="section-center">
       <ToastContainer position="top-center" />
       <Form />
-      <Items items={items} />
+      <Items />
     </section>
   );
 };

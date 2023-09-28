@@ -1,6 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import customFetch from "./utils";
+import { toast } from "react-toastify";
 
 const Form = () => {
   const [newItemName, setNewItemName] = useState("");
@@ -10,6 +11,13 @@ const Form = () => {
     isLoading,
   } = useMutation({
     mutationFn: taskTitle => customFetch.post("/", { title: taskTitle }),
+    onSuccess: () => {
+      toast.success("Created");
+    },
+    onError: error => {
+      console.log(error);
+      toast.error("Msg");
+    },
   });
 
   // console.log(result); -> contains mutate function
