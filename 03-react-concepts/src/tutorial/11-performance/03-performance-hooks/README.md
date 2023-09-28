@@ -44,3 +44,96 @@ function MyComponent() {
   );
 }
 ```
+
+### More Examples of useCallback hook
+
+- We create function inside useEffect -> to avoid dependency array warning that react will give,
+- BUT -> if we create function outside and to avoid warning we also add the same function in dependency array then it's going to be infinite loop
+- because -> functions get created from scratch everytime component rerenders
+- So, we do following way -
+
+```js
+function App() {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const users = await response.json();
+        setUsers(users);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+}
+```
+
+- if we change to below -
+
+```js
+function App() {
+  const fetchData = async () => {
+    try {
+      const response = await fetch(url);
+      const users = await response.json();
+      setUsers(users);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]); // this is going to be an infinite loop -> since fetchData is a normal function and will be created from scratch every time componnet rerenders
+}
+```
+
+- Here is FIX -> using useCallback hook
+
+```js
+import { useCallback } from "react";
+
+function App() {
+  const fetchData = useCallback(async () => {
+    try {
+      const response = await fetch(url);
+      const users = await response.json();
+      setUsers(users);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]); // this won't call infinite rerenders -> as it's memoised function
+}
+```
+
+## useMemo hook
+
+- The useMemo hook is a hook in React that allows you to memoize a value. It takes two arguments: the first is a function that returns the value you want to memoize, and the second is an array of dependencies. The hook will return the memoized value that will only change if one of the values in the dependency array changes.
+
+- By memoizing a value, you can avoid unnecessary calculations and improve the performance of your React application. The value will only be recalculated if one of its dependencies changes, otherwise the same instance of the value will be returned. This can be useful in situations where you have an expensive calculation that you only want to recompute when its dependencies change.
+
+Here is an example of how you might use useMemo:
+
+```js
+import React, { useMemo } from "react";
+
+function MyComponent({ data }) {
+  const processedData = useMemo(() => {
+    return data.map(item => item.toUpperCase());
+  }, [data]);
+
+  return (
+    <div>
+      {processedData.map(item => (
+        <div key={item}>{item}</div>
+      ))}
+    </div>
+  );
+}
+```
+
+- In the above example, the processedData value is memoized using useMemo and the data prop is passed as a dependency. This means that the processedData value will only be recalculated if the data prop changes.
