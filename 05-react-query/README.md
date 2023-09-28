@@ -80,7 +80,7 @@ try {
 
 CRUD stands for Create, Read, Update, and Delete, which are the basic operations that can be performed on a database or web application. These operations allow users to create new data, read existing data, update data, and delete data when necessary.
 
-## React Query
+## React Query - v4
 
 - React Query is a state management library that simplifies the process of fetching, caching, and updating data in React applications.
 - Its major benefits include automatic background refetching, caching and stale data management, error handling, and easy pagination and infinite scrolling.
@@ -108,4 +108,21 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <App />
   </QueryClientProvider>
 );
+```
+
+### UseEffect Approach
+
+```js
+const fetchTasks = async () => {
+  try {
+    const response = await customFetch.get("/");
+    console.log(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+useEffect(() => {
+  fetchTasks();
+}, []);
 ```
