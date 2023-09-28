@@ -81,3 +81,14 @@ axios.defaults.headers["Authorization"] = AUTH_TOKEN;
 axios.defaults.headers.post["Content-Type"] =
   "application/x-www-form-urlencoded";
 ```
+
+### Custom Instance
+
+```js
+const authFetch = axios.create({
+  baseURL: "https://course-api.com",
+  headers: {
+    Accept: "application/json",
+  },
+});
+```
