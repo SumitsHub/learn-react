@@ -17,3 +17,30 @@ const MyComponent = React.memo(function MyComponent(props) {
 - The above component will only rerender if it's input props changed, not even if it's parent level state changes
 
 - Gotcha with memo -> when we pass function as prop to component, then memoised component will also rerender if parent component rerenders
+- Reason -> every time component rerenders, functions get's created from scratch, so indirectly props to memoised component gets changed and forces component to rerender
+- Fix -> use of useCallback hook, see below
+
+## UseCallback
+
+- The useCallback hook is a hook in React that allows you to memoize a function. It takes two arguments: the first is the function you want to memoize, and the second is an array of dependencies. The hook will return a memoized version of the function that only changes if one of the values in the dependency array changes.
+
+- By memoizing the function, you can avoid unnecessary re-renders and improve the performance of your React application. The function will only be re-created if one of its dependencies changes, otherwise the same instance of the function will be returned. This can be useful in situations where you have an expensive function that you only want to recompute when its dependencies change.
+
+- Here is an example of how you might use useCallback:
+
+```js
+import React, { useCallback, useState } from "react";
+
+function MyComponent() {
+  const [data, setData] = useState([]);
+  const handleClick = useCallback(() => {
+    console.log(data);
+  }, [data]);
+
+  return (
+    <div>
+      <button onClick={handleClick}>Click me</button>
+    </div>
+  );
+}
+```
