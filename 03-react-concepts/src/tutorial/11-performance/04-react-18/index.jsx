@@ -1,21 +1,35 @@
-import { useState } from "react";
+import { useState, useTransition } from "react";
 const LatestReact = () => {
   const [text, setText] = useState("");
   const [items, setItems] = useState([]);
+  const [isPending, startTransition] = useTransition();
 
   const handleChange = e => {
     setText(e.target.value);
 
     // slow down CPU -> from devtools (refer README)
     // following code will make input typing much slower
-    const newItems = Array.from({ length: 5000 }, (_, index) => {
-      return (
-        <div key={index}>
-          <img src="/vite.svg" alt="" />
-        </div>
-      );
+    // const newItems = Array.from({ length: 5000 }, (_, index) => {
+    //   return (
+    //     <div key={index}>
+    //       <img src="/vite.svg" alt="" />
+    //     </div>
+    //   );
+    // });
+    // setItems(newItems);
+
+    // using useTransition hook to avoid time lag -> if still observing some time lag, make sure to remove throttle from devtools
+
+    startTransition(() => {
+      const newItems = Array.from({ length: 5000 }, (_, index) => {
+        return (
+          <div key={index}>
+            <img src="/vite.svg" alt="" />
+          </div>
+        );
+      });
+      setItems(newItems);
     });
-    setItems(newItems);
   };
   return (
     <section>
@@ -29,15 +43,19 @@ const LatestReact = () => {
       </form>
       <h4>Items Below</h4>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          marginTop: "2rem",
-        }}
-      >
-        {items}
-      </div>
+      {isPending ? (
+        "Loading..."
+      ) : (
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr 1fr",
+            marginTop: "2rem",
+          }}
+        >
+          {items}
+        </div>
+      )}
     </section>
   );
 };
