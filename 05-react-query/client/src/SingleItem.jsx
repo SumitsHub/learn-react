@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import customFetch from "./utils";
+import { toast } from "react-toastify";
 
 const SingleItem = ({ item }) => {
   const queryClient = useQueryClient();
@@ -8,6 +9,18 @@ const SingleItem = ({ item }) => {
       return customFetch.patch(`/${taskId}`, { isDone });
     },
     onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["tasks"],
+      });
+    },
+  });
+
+  const { mutate: deleteTask } = useMutation({
+    mutationFn: taskId => {
+      return customFetch.delete(`/${taskId}`);
+    },
+    onSuccess: () => {
+      toast.success("Task deleted");
       queryClient.invalidateQueries({
         queryKey: ["tasks"],
       });
@@ -31,7 +44,7 @@ const SingleItem = ({ item }) => {
       <button
         className="btn remove-btn"
         type="button"
-        onClick={() => console.log("delete task")}
+        onClick={() => deleteTask(item.id)}
       >
         delete
       </button>
