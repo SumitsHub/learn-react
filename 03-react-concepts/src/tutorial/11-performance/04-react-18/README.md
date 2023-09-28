@@ -31,3 +31,24 @@ const handleChange = e => {
   });
 };
 ```
+
+## Suspense API and React.lazy
+
+- The Suspense API is a feature in React that allows you to manage the loading state of your components. It provides a way to "suspend" rendering of a component until some data has been fetched, and display a fallback UI in the meantime.
+- This makes it easier to handle asynchronous data loading and provide a smooth user experience in your React application.
+
+Here is an example of how you might use the Suspense API:
+
+```js
+import React, { lazy, Suspense } from "react";
+
+const DataComponent = lazy(() => import("./DataComponent"));
+
+function MyComponent() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DataComponent />
+    </Suspense>
+  );
+}
+```
