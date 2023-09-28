@@ -223,3 +223,11 @@ const { mutate: createTask, isLoading } = useMutation({
   },
 });
 ```
+
+### Alternate way to spin up the server
+
+```bash
+npm run local-server
+```
+
+- this will store data into 'tasks.json' file
