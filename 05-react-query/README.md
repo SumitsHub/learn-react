@@ -192,3 +192,18 @@ const Items = () => {
 };
 export default Items;
 ```
+
+### Create Task - mutation
+
+Form.jsx
+
+```js
+const { mutate: createTask, isLoading } = useMutation({
+  mutationFn: taskTitle => customFetch.post("/", { title: taskTitle }),
+});
+
+const handleSubmit = e => {
+  e.preventDefault();
+  createTask(newItemName);
+};
+```
