@@ -6,14 +6,18 @@ const Items = () => {
   const result = useQuery({
     queryKey: ["tasks"],
     queryFn: async () => {
-      const { data } = await customFetch.get("/");
+      const { data } = await customFetch.get("/something");
       return data;
     },
   });
   console.log(result);
-  const { isLoading, data } = result;
+  const { isLoading, data, error, isError } = result;
   if (isLoading) {
     return <p style={{ marginTop: "1rem " }}>Loading...</p>;
+  }
+
+  if (error) {
+    return <p style={{ marginTop: "1rem " }}>{error.message}</p>;
   }
   return (
     <div className="items">

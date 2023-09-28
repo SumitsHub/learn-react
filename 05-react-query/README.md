@@ -159,3 +159,36 @@ The unique key you provide is used internally for refetching, caching, and shari
 - Query Function
 
 A query function can be literally any function that returns a promise. The promise that is returned should either resolve the data or throw an error.
+
+### Error Handling
+
+```js
+const Items = () => {
+  const { isLoading, data, error, isError } = useQuery({
+    queryKey: ["tasks"],
+    queryFn: async () => {
+      const { data } = await customFetch.get("/something");
+      return data;
+    },
+  });
+
+  if (isLoading) {
+    return <p style={{ marginTop: "1rem " }}>Loading...</p>;
+  }
+
+  // if (isError) {
+  //   return <p style={{ marginTop: '1rem ' }}>there was an error...</p>;
+  // }
+  if (error) {
+    return <p style={{ marginTop: "1rem " }}>{error.message}</p>;
+  }
+  return (
+    <div className="items">
+      {data.taskList.map(item => {
+        return <SingleItem key={item.id} item={item} />;
+      })}
+    </div>
+  );
+};
+export default Items;
+```
