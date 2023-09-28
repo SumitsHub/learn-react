@@ -126,3 +126,36 @@ useEffect(() => {
   fetchTasks();
 }, []);
 ```
+
+## First Query
+
+Items.jsx
+
+```js
+import { useQuery } from "@tanstack/react-query";
+
+const result = useQuery({
+  queryKey: ["tasks"],
+  queryFn: () => customFetch.get("/"),
+});
+console.log(result);
+```
+
+- Query example using fetch API
+
+```js
+const result = useQuery({
+  queryKey: ["tasks"],
+  queryFn: () =>
+    fetch("http://localhost:5000/api/tasks/").then(res => res.json()),
+});
+console.log(result);
+```
+
+- Query Key
+
+The unique key you provide is used internally for refetching, caching, and sharing your queries throughout your application.
+
+- Query Function
+
+A query function can be literally any function that returns a promise. The promise that is returned should either resolve the data or throw an error.
