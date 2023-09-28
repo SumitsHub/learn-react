@@ -6,6 +6,12 @@ Open server directory.
 
 - run "npm install" and "npm start"
 
+#### Client
+
+Open client directory
+
+- run "npm install" and "npm run dev"
+
 ### HTTP Methods
 
 HTTP (Hypertext Transfer Protocol) methods define the types of actions that can be performed on a web server to retrieve, modify or delete information. The most commonly used HTTP methods are GET, POST, PATCH and DELETE. GET retrieves data, POST sends data to be processed, PATCH update or replace existing data, DELETE removes data.
@@ -73,3 +79,33 @@ try {
 ```
 
 CRUD stands for Create, Read, Update, and Delete, which are the basic operations that can be performed on a database or web application. These operations allow users to create new data, read existing data, update data, and delete data when necessary.
+
+## React Query
+
+- React Query is a state management library that simplifies the process of fetching, caching, and updating data in React applications.
+- Its major benefits include automatic background refetching, caching and stale data management, error handling, and easy pagination and infinite scrolling.
+- Compared to setting up requests with useEffect, React Query provides a more declarative and centralized approach to managing data in React, which results in cleaner and more efficient code.
+- It also reduces boilerplate code and improves performance by minimizing unnecessary re-renders and network requests.
+
+[React Query](https://tanstack.com/query/v4/docs/react/overview)
+
+### Install react-query
+
+```sh
+npm i @tanstack/react-query
+```
+
+#### Setup React Query
+
+main.jsx
+
+```js
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+const queryClient = new QueryClient();
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <QueryClientProvider client={queryClient}>
+    <App />
+  </QueryClientProvider>
+);
+```
