@@ -27,7 +27,6 @@
 - README
   The markdown file where you can share more info about the project for example build instructions and summary
 
-- zoom 175%
 
 #### Remove Boilerplate
 
@@ -53,6 +52,7 @@ const Greeting = () => {
 };
 ```
 
+#### React Component Rules
 - starts with capital letter
 - must return JSX (html)
 - always close tag <Greeting/>
@@ -60,7 +60,7 @@ const Greeting = () => {
 ##### Typical Component
 
 ```js
-// imports or logic
+// imports or logic goes here
 
 const Greeting = () => {
   return <h2>My First Component</h2>;
@@ -84,19 +84,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(<Greeting />);
 ```
-
-#### Possible Bug
-
-If for some reason you still have this error in the terminal
-
-```
-Module not found: Error: Can't resolve 'path/index.js'
-```
-
-Just restart the server
-
-- CTRL + C (stop the server)
-- "npm start" (start the dev server)
 
 #### Extensions and settings.json
 
@@ -174,7 +161,7 @@ const Greeting = () => {
 
 - return single element (one parent element)
 
-  - semantics section/article
+  - HTML semantic elements -> section/article/nav/header/footer -> specifies what the element contains
   - Fragment - let's us group elements without adding extra nodes
 
 ```js
@@ -185,7 +172,7 @@ return <React.Fragment>...rest of the return</React.Fragment>;
 return <>...rest of the return</>;
 ```
 
-- camelCase property naming convention
+- camelCase property naming convention for html attributes
 
 ```js
 return (
@@ -218,7 +205,7 @@ return <input />;
 ```
 
 - formatting
-  - opening tag in the same line as return or ()
+  - opening tag in the same line as return or use ()
 
 ```js
 function Greeting() {
@@ -458,7 +445,7 @@ const Author = () => (
 
 - external libraries use inline css, so if you want to make some changes, reference the library docs and elements tab
 
-- alternative option for inline style
+- alternative option for inline style -> creating seperate object for style
 
 ```js
 const Author = () => {
@@ -1186,7 +1173,6 @@ const Book = props => {
 };
 ```
 
-- two fixes
 - second option - wrap in the anonymous arrow function
 
 ```js
@@ -1462,81 +1448,3 @@ public/index.html
 - choose build folder
 - rename site - site settings/change site name
 
-#### Create-React-App Boilerplate (src)
-
-- index.js
-
-```js
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-// styles (typically global)
-import "./index.css";
-
-// convention to name it App and setup in a separate file
-import App from "./App";
-// import report web vitals
-import reportWebVitals from "./reportWebVitals";
-
-// StrictMode
-
-// StrictMode is a tool for highlighting potential problems in an application.Activates additional checks and warnings for its descendants.Runs only in Development, does not impact the production build. RENDERS TWICE !!! Possible to remove.
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
-```
-
-- remove in src
-
-  - setupTests.js
-  - reportWebVitals.js
-  - App.test.js
-
-- be careful with multiple css files
-
-App.js
-
-```js
-function App() {
-  return <h1>backroads app</h1>;
-}
-
-export default App;
-```
-
-- remove
-  - remove logo.svg
-  - App.css
-
-#### Vite Docs
-
-(Vite)[https://vitejs.dev/]
-
-#### Vite Install
-
-```sh
-npm create vite@latest app-name -- --template react
-npm install
-npm run dev
-```
-
-- http://localhost:5173/
-
-#### Vite Setup
-
-- need to use .jsx extension
-- index.html in the source instead of public
-- assets still in public
-- instead of index.js, need to use main.jsx
-- to spin up dev server - "npm run dev"
-
-- rest the same - imports/exports, deployment, assets, etc...

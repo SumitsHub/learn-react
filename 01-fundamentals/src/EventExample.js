@@ -12,7 +12,7 @@ const EventExample = () => {
   const handleFormSubmit = e => {
     // Becuase of form element -> this get's called on click of button inside form and also when user hits enter on input
     // Imp -> in order to get onSubmit of form called on click of button, button needs to be inside form tag
-    e.preventDefault();
+    e.preventDefault(); // to prevent the default behaviour of the HTML form tag which calls GET method on submit and resets the form
     console.log(e);
   };
 
@@ -25,7 +25,7 @@ const EventExample = () => {
           name="example"
           onChange={handleInput}
           onPaste={() => {
-            console.log("called");
+            console.log('called');
             // On paste -> onPaste gets called then onChange also gets called
           }}
         />
