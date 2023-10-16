@@ -158,10 +158,6 @@ There are a few ways that you can trigger a re-render in a React component:
 
 #### useState with Array
 
-```js
-import Starter from './tutorial/01-useState/starter/03-useState-array.jsx';
-```
-
 Setup Challenge :
 
 - import data
@@ -241,10 +237,6 @@ export default UseStateArray;
 - should we update backroads app project?
 
 #### useState with Object
-
-```js
-import Starter from './tutorial/01-useState/starter/04-useState-object.jsx';
-```
 
 Setup Challenge :
 
@@ -1615,6 +1607,60 @@ const ControlledInputs = () => {
   );
 };
 export default ControlledInputs;
+```
+
+
+#### About HTML form submitting
+- form can be submitted using button click(onClick handler) or using onSubmit handler to form which gets invoked on hitting enter on the form elements
+- You can use button type='submit' to be more specific inside form, without type also it works
+- if using onClick and onSubmit both event listeners -> both get triggered, onClick get triggered first (in all cases) - Event Propogation -> Bubble Phase
+- if there are multiple buttons inside form -> only first button acts as submit button even if you add type=submit to other button
+- Example code - 
+```js
+<form className="form" onSubmit={handleSubmit}>
+      <h4>controlled inputs</h4>
+      <div className="form-row">
+        <label htmlFor="name" className="form-label">
+          name
+        </label>
+        <input
+          type="text"
+          className="form-input"
+          value={name}
+          onChange={e => setName(e.target.value)}
+          id="name"
+        />
+      </div>
+      <div className="form-row">
+        <label htmlFor="email" className="form-label">
+          Email
+        </label>
+        <input
+          type="email"
+          className="form-input"
+          id="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+        />
+      </div>
+      <button
+        className="btn btn-block"
+        onClick={() => {
+          console.log('submit btn');
+        }}
+      >
+        submit
+      </button>
+      <button
+        type="submit"
+        className="btn btn-block"
+        onClick={() => {
+          console.log('normal btn');
+        }}
+      >
+        submit
+      </button>
+    </form>
 ```
 
 #### Controlled Inputs - Complete

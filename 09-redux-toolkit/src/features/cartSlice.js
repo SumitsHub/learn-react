@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import cartItems from "../cartItems";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import cartItems from '../cartItems';
 const initialState = {
   items: [],
   amount: 0,
@@ -7,13 +7,13 @@ const initialState = {
   isLoading: true,
 };
 
-const url = "https://course-api.com/react-useReducer-cart-project";
+const url = 'https://course-api.com/react-useReducer-cart-project';
 
 // this function needs to return Promise
 export const fetchCartItems = createAsyncThunk(
-  "cart/fetchCartItems",
+  'cart/fetchCartItems',
   async (_, thunkAPI) => {
-    console.log(name);
+    // 1st argument -> parameters passed while calling this function
     console.log(thunkAPI);
     return fetch(url)
       .then(res => res.json())
@@ -22,7 +22,7 @@ export const fetchCartItems = createAsyncThunk(
 );
 
 const cartSlice = createSlice({
-  name: "cart",
+  name: 'cart',
   initialState,
   reducers: {
     clearCart: state => {

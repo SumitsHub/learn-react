@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const useFetch = url => {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,13 +21,14 @@ const useFetch = url => {
       } catch (error) {
         setIsError(true);
         // console.log(error);
+      } finally {
+        // hide loading
+        setIsLoading(false);
       }
-      // hide loading
-      setIsLoading(false);
     };
     // invoke fetch data
     fetchData();
-  }, []);
+  }, [url]);
 
   return { isLoading, isError, data };
 };
