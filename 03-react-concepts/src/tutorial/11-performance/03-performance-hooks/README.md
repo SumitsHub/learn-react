@@ -15,6 +15,8 @@ const MyComponent = React.memo(function MyComponent(props) {
 ```
 
 - The above component will only rerender if it's input props changed, not even if it's parent level state changes
+- React uses "Object.is" to compare props
+- Use optional prop 'arePropsEqual' which is callback function accepting 2 args, previous props and new props and returns boolean result of comparison i.e. true or false
 
 - Gotcha with memo -> when we pass function as prop to component, then memoised component will also rerender if parent component rerenders
 - Reason -> every time component rerenders, functions get's created from scratch, so indirectly props to memoised component gets changed and forces component to rerender
