@@ -1,4 +1,4 @@
-import Concept from './tutorial/13-useImperativeHandle/App';
+import Concept from './tutorial/02.2-useLayoutEffect/App';
 
 function App() {
   return (
