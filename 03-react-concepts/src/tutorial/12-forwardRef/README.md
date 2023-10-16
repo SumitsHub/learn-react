@@ -1,5 +1,6 @@
 ## forwardRef
 - forwardRef lets your component expose a DOM node to parent component with a ref
+- By default, components don’t expose their DOM nodes to parent components
 - Call forwardRef() to let your component receive a ref and forward it to a child component
 ```js
 import { forwardRef } from 'react';
