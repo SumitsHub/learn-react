@@ -1,12 +1,11 @@
-import { useState } from 'react';
 import './App.css';
+import InfiniteScroll from './features/01-Infinite_Scroll/components';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <h1>Hello there</h1>
+      <InfiniteScroll />
     </>
   );
 }
