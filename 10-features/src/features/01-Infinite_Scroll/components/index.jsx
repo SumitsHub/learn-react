@@ -5,7 +5,7 @@ function InfiniteScroll() {
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
 
-  useBookSearch(query, page);
+  const { loading, error, books, hasMore } = useBookSearch(query, page);
 
   const handleChange = e => {
     setQuery(e.target.value);
@@ -21,12 +21,11 @@ function InfiniteScroll() {
         value={query}
         onChange={handleChange}
       />
-      <div>Title</div>
-      <div>Title</div>
-      <div>Title</div>
-      <div>Title</div>
-      <div>Loading...</div>
-      <div>Error</div>
+      {loading && <div>Loading...</div>}
+      {error && <div>Error</div>}
+      {books.map((book, index) => {
+        return <div key={index}>{book}</div>;
+      })}
     </div>
   );
 }
