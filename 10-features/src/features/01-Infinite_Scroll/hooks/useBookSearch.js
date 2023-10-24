@@ -12,8 +12,8 @@ export default function useBookSearch(query, pageNumber) {
       .then(res => {
         console.log(res.data);
       })
-      .catch(() => {
-        return;
+      .catch(e => {
+        if (axios.isCancel(e)) return;
       });
 
     return () => cancel();
