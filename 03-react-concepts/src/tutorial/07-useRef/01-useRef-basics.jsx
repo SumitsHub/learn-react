@@ -5,22 +5,22 @@
  *  3. Using value that will be persistent across rerenders
  */
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 const UseRefBasics = () => {
   const [value, setValue] = useState(0);
-  const refContainer = useRef(null);
+  const inputRef = useRef(null);
   const isMounted = useRef(false);
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(refContainer.current);
-    const name = refContainer.current.value;
+    console.log(inputRef.current);
+    const name = inputRef.current.value;
     console.log(name);
   };
   useEffect(() => {
-    // console.log(refContainer.current);
-    refContainer.current.focus(); // setting focus on input on page load using ref
+    // console.log(inputRef.current);
+    inputRef.current.focus(); // setting focus on input on page load using ref
   });
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const UseRefBasics = () => {
       isMounted.current = true;
       return;
     }
-    console.log("re-render");
+    console.log('re-render');
   }, [value]);
 
   return (
@@ -38,12 +38,7 @@ const UseRefBasics = () => {
           <label htmlFor="name" className="form-label">
             Name
           </label>
-          <input
-            type="text"
-            id="name"
-            ref={refContainer}
-            className="form-input"
-          />
+          <input type="text" id="name" ref={inputRef} className="form-input" />
         </div>
         <button type="submit" className="btn btn-block">
           submit
