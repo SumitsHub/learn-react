@@ -7,7 +7,10 @@ function InfiniteScroll() {
 
   const { loading, error, books, hasMore } = useBookSearch(query, page);
 
+  // ref to hold reference of IntersectionObserver across re-renders
   const observer = useRef();
+
+  // using callback get reference to the last node and observe depending on loading and hasMore
   const lastBookElementRef = useCallback(
     node => {
       console.log(node);
