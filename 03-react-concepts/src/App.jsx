@@ -1,4 +1,4 @@
-import Concept from './tutorial/07-useRef/02-ref-callback';
+import Concept from './tutorial/08-custom-hooks/03-outside-click';
 
 function App() {
   return (
