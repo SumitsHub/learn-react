@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './features/02-Counter';
+import App from './features/03-navbar/Navbar';
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
