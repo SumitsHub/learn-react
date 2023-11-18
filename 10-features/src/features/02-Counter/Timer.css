@@ -1,0 +1,21 @@
+.btn-container {
+    width: 70vw;
+    margin: 20px auto;
+    /* margin-top: 20px; */
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-container {
+    width: 70vw;
+    margin: 20px auto;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.input-container label input {
+    margin-right: 5px;
+}
