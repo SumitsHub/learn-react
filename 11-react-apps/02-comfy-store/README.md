@@ -99,7 +99,7 @@ export default App;
 [DaisyUI](https://daisyui.com/)
 
 ```sh
-npm i  -D daisyui@latest @tailwindcss/typography
+npm i -D daisyui@latest @tailwindcss/typography
 ```
 
 tailwind.config.js
