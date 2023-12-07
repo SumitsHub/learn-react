@@ -121,9 +121,7 @@ npm i axios@1.4.0 dayjs@1.11.9 @reduxjs/toolkit@1.9.5 @tanstack/react-query@4.32
 
 - create pages directory
 - create all pages and export from index.js
-- About, Cart, Checkout, Error,
-  HomeLayout, Landing, Login, Orders,
-  Products, Register, SingleProduct
+- About, Cart, Checkout, Error, HomeLayout, Landing, Login, Orders, Products, Register, SingleProduct
 - import in app.jsx
 
 ## Solution (3) - Create All Pages
