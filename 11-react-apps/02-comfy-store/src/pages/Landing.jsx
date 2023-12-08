@@ -1,4 +1,10 @@
+import { Hero } from '../components';
+
 function Landing() {
-  return <div className="text-4xl">Landing</div>;
+  return (
+    <>
+      <Hero />
+    </>
+  );
 }
 export default Landing;
