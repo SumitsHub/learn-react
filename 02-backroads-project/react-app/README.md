@@ -2,25 +2,12 @@
 
 Application Goal - Converting html project to react
 
-- backroads-html - working html/css/javascript project (contains assets)
+- html-app - working html/css/javascript project (contains assets)
 - react-app - working react application
   - navigate to the folder
   - run 'npm install'
   - once the dependencies are installed run 'npm start'
 
-#### Create New React App
-
-- install
-
-```sh
-npx create-react-app@latest backroads-app
-```
-
-- run dev server
-
-```sh
-npm start
-```
 
 #### SRC Folder (boilerplate)
 
@@ -40,7 +27,7 @@ import reportWebVitals from "./reportWebVitals";
 
 // StrictMode
 
-// StrictMode is a tool for highlighting potential problems in an application.Activates additional checks and warnings for its descendants.Runs only in Development, does not impact the production build. RENDERS TWICE !!! Possible to remove.
+// StrictMode is a tool for highlighting potential problems in an application. Activates additional checks and warnings for its descendants. Runs only in Development, does not impact the production build. RENDERS TWICE !!! Possible to remove.
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -55,14 +42,6 @@ root.render(
 reportWebVitals();
 ```
 
-- remove in src
-
-  - setupTests.js
-  - reportWebVitals.js
-  - App.test.js
-
-- be careful with multiple css files
-
 App.js
 
 ```js
@@ -72,10 +51,6 @@ function App() {
 
 export default App;
 ```
-
-- remove
-  - remove logo.svg
-  - App.css
 
 #### Setup Structure
 
@@ -106,8 +81,7 @@ export default App;
   - copy/paste all the content within body tags, up to <script> (index.html)
   - select all "class" instances and refactor to "className" (CMD + D)
   - fix the comment bug (remove or comment out)
-  - don't worry about - Using target="\_blank" without rel="noreferrer" warning,
-    will fix it later
+  - don't worry about - Using target="\_blank" without rel="noreferrer" warning, will fix it later
   - move README.md from final to current project
 
 #### Setup Components
