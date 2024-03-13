@@ -27,17 +27,6 @@
 - README
   The markdown file where you can share more info about the project for example build instructions and summary
 
-
-#### Remove Boilerplate
-
-- remove src folder
-- create src folder
-
-  - create index.js inside src
-
-- toggle sidebar CMD + B
-- shortcuts settings/keyboard shortcuts
-
 #### First Component
 
 ```js
@@ -85,44 +74,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<Greeting />);
 ```
 
-#### Extensions and settings.json
-
-- Auto Rename Tag
-- Highlight Matching Tag
-  - customize in settings.json
-- Prettier
-  - format on save
-  - format on paste
-  - Default Formatter (Prettier - Code formatter)
-
-settings.json
-
-```json
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "prettier.singleQuote": true,
-    "prettier.semi": false,
-```
-
-- Emmet
-
-settings.json
-
-```json
-"emmet.includeLanguages": {
-    "javascript": "javascriptreact"
-  },
-```
-
-- ES7 Snippets
-  - rafce (arrow func with export)
-  - rfce (regular func with export )
-  - component name -> same as the file name
-  - react auto import
-    - uncheck
-    - React Snippets › Settings: Import React On Top
-
 #### First Component in Detail
 
 - capital letter
@@ -161,7 +112,7 @@ const Greeting = () => {
 
 - return single element (one parent element)
 
-  - HTML semantic elements -> section/article/nav/header/footer -> specifies what the element contains
+  - HTML semantic elements -> section/article/nav/header/footer/main/aside -> specifies what the element contains
   - Fragment - let's us group elements without adding extra nodes
 
 ```js
@@ -243,12 +194,6 @@ const Message = () => {
   return <p>this is my message</p>;
 };
 ```
-
-#### React Developer Tools
-
-- top right corner
-- more tools/extensions
-- open chrome web store
 
 #### Book List
 
@@ -333,23 +278,6 @@ root.render(<BookList />);
 
 #### CSS
 
-- create index.css in src
-
-```css
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background: #f1f5f8;
-  color: #222;
-}
-```
-
 - import file and add classes
 
 ```js
@@ -422,7 +350,7 @@ const Book = () => {
 
 - style prop
 - {} in JSX means going back to JS Land
-- value is an object with key/value pairs - capitalized and with ''
+- value is an object with key/value pairs - capitalized and with '' (quotes)
 
 ```js
 const Author = () => (
@@ -443,7 +371,7 @@ const Author = () => (
 }
 ```
 
-- external libraries use inline css, so if you want to make some changes, reference the library docs and elements tab
+- external libraries use inline css, so if you want to make some changes, reference the library docs and Elements tab from devtools
 
 - alternative option for inline style -> creating seperate object for style
 
@@ -474,7 +402,7 @@ const Book = () => {
       <h2>{title}</h2>
 
       <h4>{author.toUpperCase()} </h4>
-      {/* <p>{let x = 6}</p> */}
+      {/* <p>{let x = 6}</p> */} - it's a statement, it must be expression i.e. there should be some return value
       <p>{6 + 6}</p>
     </article>
   );
@@ -482,11 +410,13 @@ const Book = () => {
 ```
 
 ```js
-// parameters
+// parameters - at the time of definition
 const someFunc = (param1, param2) => {
   console.log(param1, param2);
 };
-// arguments
+
+// arguments - passed at the time of function call
+// to verify this use 'arguments' keyword provided by JS inside an function
 someFunc("job", "developer");
 ```
 
@@ -548,7 +478,7 @@ const Book = props => {
     <article className="book">
       <img src={props.img} alt={props.title} />
       <h2>{props.title}</h2>
-      <h4>{props.author} </h4>
+      <h4>{props.author}</h4>
     </article>
   );
 };
@@ -635,23 +565,7 @@ const Book = props => {
 };
 ```
 
-- optional
-
-```css
-@media screen and (min-width: 768px) {
-  .booklist {
-    grid-template-columns: repeat(3, 1fr);
-    align-items: start;
-  }
-}
-.book p {
-  margin: 1rem 0 0.5rem;
-}
-```
-
 #### Simple List
-
-- [Javascript Nuggets - Map ](https://www.youtube.com/watch?v=80KX6aD9R7M&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=1)
 
 - refactor
 
@@ -691,20 +605,6 @@ const Book = props => {
 ```js
 function BookList() {
   return <section className="booklist">{books}</section>;
-}
-```
-
-- map - creates a new array from calling a function for every array element.
-
-```js
-const names = ["john", "peter", "susan"];
-const newNames = names.map(name => {
-  console.log(name);
-  return <h1>{name}</h1>;
-});
-
-function BookList() {
-  return <section className="booklist">{newNames}</section>;
 }
 ```
 
@@ -775,7 +675,7 @@ function BookList() {
 }
 ```
 
-- you will see index, but it's not advised if the list is changing
+- IMP: you will see index, but it's not advised if the list is changing
 
 ```js
 function BookList() {
@@ -795,8 +695,7 @@ function BookList() {
 
 - render component
 - pass entire object
-- Destructuring (object)
-  [JS Nuggets - Destructuring (object)](https://www.youtube.com/watch?v=i4vhNKihfto&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=8&t=1s)
+
 
 ```js
 function BookList() {
@@ -841,8 +740,6 @@ const Book = ({ book: { img, title, author } }) => {
 #### My Personal Preference
 
 - utilize spread operator (...) - copy values
-- Spread Operator
-- [JS Nuggets - Spread Operator](https://www.youtube.com/watch?v=4Zyr5a3m0Fc&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=10)
 
 ```js
 const friends = ["john", "peter", "anna"];
@@ -1008,17 +905,6 @@ const EventExamples = () => {
 - alternative approach
 - pass anonymous function (in this case arrow function)
 - one liner - less code
-
-```js
-const EventExamples = () => {
-  return (
-    <section>
-      <button onClick={() => console.log("hello there")}>click me</button>
-    </section>
-  );
-};
-```
-
 - also can access event object
 
 ```js
@@ -1114,7 +1000,6 @@ const Book = props => {
 - initial setup
 - create getBook function in booklist
 - accepts id as an argument and finds the book
-- [Javascript Nuggets - Filter and Find](https://www.youtube.com/watch?v=KeYxsev737s&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=4)
 - pass the function down to Book Component and invoke on the button click
 - in the Book Component destructure id and function
 - invoke the function when user clicks the button, pass the id
@@ -1152,7 +1037,7 @@ const Book = props => {
 };
 ```
 
-- two fixes
+- two fixes for above code
 - first option - setup wrapper
 
 ```js
@@ -1372,31 +1257,6 @@ const Book = props => {
 };
 ```
 
-index.css
-
-```css
-.book {
-  background: #fff;
-  border-radius: 1rem;
-  padding: 2rem;
-  text-align: center;
-  /* set relative */
-  position: relative;
-}
-
-.number {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 1rem;
-  padding: 0.75rem;
-  border-top-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-  background: #c35600;
-  color: #fff;
-}
-```
-
 #### Add Title
 
 - add a title to our app (css optional)
@@ -1416,16 +1276,6 @@ function BookList() {
       </section>
     </>
   );
-}
-```
-
-index.css
-
-```css
-h1 {
-  text-align: center;
-  margin-top: 4rem;
-  text-transform: capitalize;
 }
 ```
 
