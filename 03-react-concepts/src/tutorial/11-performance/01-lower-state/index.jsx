@@ -11,6 +11,7 @@ const LowerState = () => {
   const [count, setCount] = useState(0);
   return (
     <section>
+      {/* to see the actual difference comment this below button and uncomment Counter component */}
       <button
         className="btn"
         onClick={() => setCount(count + 1)}

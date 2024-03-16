@@ -10,4 +10,8 @@ const List = ({ people, removePerson }) => {
     </div>
   );
 };
-export default memo(List);
+export default memo(List, (prevProps, nextProps)=>{
+  console.log(prevProps, nextProps);
+
+  return Object.is(prevProps, nextProps);
+});

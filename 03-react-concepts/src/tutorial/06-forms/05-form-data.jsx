@@ -6,7 +6,7 @@ const UncontrolledInputs = () => {
   const handleSubmit = e => {
     e.preventDefault();
     console.log(e.currentTarget);
-    // NOTE -> currentTarget is the element to which triggered the event, this will not change, whereas event.target refers to the element which recieved that event while propogation, digging more into it in next component
+    // NOTE -> currentTarget is the element which triggered the event, this will not change, whereas event.target refers to the element which recieved that event while propogation, digging more into it in next component
     const formData = new FormData(e.currentTarget);
     console.log(formData); // set, get, getAll, delete, append, entries, has, keys, values
     console.log(formData.entries()); // iterator

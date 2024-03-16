@@ -1,4 +1,4 @@
-import Concept from './tutorial/08-custom-hooks/03-outside-click';
+import Concept from './tutorial/02-useEffect/05-cleanup-function';
 
 function App() {
   return (

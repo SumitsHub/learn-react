@@ -1,7 +1,4 @@
-import { createContext } from "react";
-import { useContext } from "react";
-import { useState } from "react";
-import NavLinks from "./NavLinks";
+import { createContext, useContext, useState } from 'react';
 
 export const NavbarContext = createContext();
 // createContext -> returns two components
@@ -13,7 +10,7 @@ export const NavbarContext = createContext();
 export const useAppContext = () => useContext(NavbarContext);
 
 const Navbar = () => {
-  const [user, setUser] = useState({ name: "bob" });
+  const [user, setUser] = useState({ name: 'bob' });
   const logout = () => {
     setUser(null);
   };

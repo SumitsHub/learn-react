@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 const Example = () => {
   const [condition, setCondition] = useState(true);
   // if (condition) {
-  //   // won't work -> hooks can only be used inside Functional components not inside any other block
-  //   const [state, setState] = useState(false);
+  //   const [state, setState] = useState(false); // won't work -> hooks can only be used inside Functional components not inside any other block
   // }
 
   // below useEffect tries to set condition to false after 1 sec
