@@ -10,7 +10,7 @@ Context provides a way to pass data through the component tree without having to
 import { createContext } from "react";
 
 const SomeContext = createContext("default");
-// default value passed to createContext will be used when there is no matching context provider in the tree above the componnet that reads the context
+// default value passed to createContext will be used when there is no matching context provider in the tree above the component that reads the context
 // default value means "last resort" fallback, it is static and never changes, specify null if no meaningful value
 ```
 
@@ -33,7 +33,7 @@ function App() {
 }
 ```
 
-## Context.Consumer - before useContext
+## Context.Consumer - before useContext() hook
 
 - this requires callback which has access to context value as paramexter
 
