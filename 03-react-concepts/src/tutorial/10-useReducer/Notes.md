@@ -1,8 +1,3 @@
-#### Context API
-
-- Navbar.jsx
-  - NavLinks.jsx (nested in Navbar)
-    - UserContainer.jsx (nested in NavLinks)
 
 #### useReducer
 
