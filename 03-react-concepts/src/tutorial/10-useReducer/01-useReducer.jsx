@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { data } from "../../../data";
+import { data } from '../../data';
 import { CLEAR_LIST, RESET_LIST, REMOVE_ITEM } from "./actions";
 import reducer from "./reducer";
 
@@ -13,6 +13,8 @@ const ReducerBasics = () => {
 
   const removeItem = id => {
     dispatch({ type: REMOVE_ITEM, payload: { id } });
+
+    // reducer(state, {type: REMOVE_ITEM, payload: { id } });  //* this don't work
   };
 
   const clearList = () => {
