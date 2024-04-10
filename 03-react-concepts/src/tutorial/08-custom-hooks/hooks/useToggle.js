@@ -5,9 +5,9 @@ import { useState } from "react";
  * @param {*} defaultValue
  * @returns {show, toggle}
  *
- * custome hook rules -
+ * custom hook rules -
  * 1. name must start with use -> useHookName
- * 2. can only be used inside functional component similiar to built-in hooks
+ * 2. can only be used inside functional component similar to built-in hooks
  */
 
 const useToggle = defaultValue => {

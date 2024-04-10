@@ -3,7 +3,7 @@
  *  1. Referencing to DOM element
  *  2. Setting focus of input by using ref attribute to input tag
  *  3. Using value that will be persistent across rerenders like an instance of Intersection Observer
- *  4. Storing refernce of the scrollbar position across re-renders
+ *  4. Storing reference of the scrollbar position across re-renders
  */
 
 import { useEffect, useRef, useState } from 'react';

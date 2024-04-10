@@ -5,7 +5,7 @@ const UserChallenge = () => {
   const [users, setUsers] = useState(data);
 
   const handleSubmit = e => {
-    e.preventDefault(); // prevent page from refreshing, which is default behaviour of HTML
+    e.preventDefault(); // prevent page from refreshing, which is default behavior of HTML
     // do something
     console.log(name);
     // if no value, do nothing
