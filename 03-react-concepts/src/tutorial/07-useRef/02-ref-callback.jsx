@@ -4,7 +4,7 @@ function RefCallback() {
   const inputRef = useCallback(node => {
     console.log(node); // HTML DOM element
     console.log(typeof node.value); // string
-  });
+  },[]);
 
   const getNode = node => {
     console.log(node); // HTML DOM element
