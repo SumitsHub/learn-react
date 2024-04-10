@@ -1,8 +1,8 @@
 ## Improve Performance of React App
 
-### 01 Lowring down states to component Level
+### 01 Lowering down states to component Level
 
-### 02 React.memo
+### 02 React.memo HOC
 
 ### 03 useCallback hook
 

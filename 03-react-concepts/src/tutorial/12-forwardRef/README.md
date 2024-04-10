@@ -9,7 +9,7 @@ const MyInput = forwardRef(function MyInput(props, ref) {
   // ...
 });
 ```
-- forwardRef accepts a render function as an argument. React calls this function with props and ref
+- forwardRef accepts a render function (functional component) as an argument. React calls this function with props and ref
 ```js
 const MyInput = forwardRef(function MyInput(props, ref) {
   return (
@@ -50,5 +50,5 @@ export default Form;
 ```
 
 ### Examples use cases
-1. Focusing a text input
+1. Focusing a text input field, scrolling to a specific position, or measuring the dimensions of an element.
 2. Playing and pausing a video
