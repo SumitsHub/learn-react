@@ -3,8 +3,10 @@ import { data } from '../../../../data';
 import Counter from './Counter';
 import List from './List';
 /**
- * Updation of count state causes unnecessary rerender of List component
+ * Update of count state causes unnecessary rerender of List component
  * To avoid -> moved counter logic to separate component -> meaning lower down the state to component levels
+ * 
+ * Point: to avoid unnecessary rerenders move state variables to component level
  */
 const LowerState = () => {
   const [people, setPeople] = useState(data);

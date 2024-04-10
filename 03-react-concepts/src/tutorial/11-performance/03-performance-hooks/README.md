@@ -28,30 +28,47 @@ const MyComponent = React.memo(function MyComponent(props) {
 
 - By memoizing the function, you can avoid unnecessary re-renders and improve the performance of your React application. The function will only be re-created if one of its dependencies changes, otherwise the same instance of the function will be returned. This can be useful in situations where you have an expensive function that you only want to recompute when its dependencies change.
 
+- When to use useCallback?
+Use useCallback when:
+
+01. You need to pass a callback function to child components.
+02. You want to optimize performance by preventing unnecessary re-renders of child components due to changes in the function reference.
+03. The callback function depends on variables from the component's scope, and you want to ensure that its reference remains stable between renders.
+4.  
 - Here is an example of how you might use useCallback:
 
 ```js
-import React, { useCallback, useState } from "react";
+import React, { useState, useCallback } from 'react';
 
-function MyComponent() {
-  const [data, setData] = useState([]);
+function ParentComponent() {
+  const [count, setCount] = useState(0);
+
   const handleClick = useCallback(() => {
-    console.log(data);
-  }, [data]);
+    setCount(prevCount => prevCount + 1);
+  }, []); // No dependencies
 
   return (
     <div>
-      <button onClick={handleClick}>Click me</button>
+      <p>Count: {count}</p>
+      <ChildComponent onClick={handleClick} />
     </div>
   );
 }
+
+function ChildComponent({ onClick }) {
+  console.log('ChildComponent rendering...');
+  return <button onClick={onClick}>Increment Count</button>;
+}
+
+export default ParentComponent;
+
 ```
 
 ### More Examples of useCallback hook
 
 - We create function inside useEffect -> to avoid dependency array warning that react will give,
 - BUT -> if we create function outside and to avoid warning we also add the same function in dependency array then it's going to be infinite loop
-- because -> functions get created from scratch everytime component rerenders
+- because -> functions get created from scratch every time component re-renders
 - So, we do following way -
 
 ```js
@@ -86,7 +103,7 @@ function App() {
   };
   useEffect(() => {
     fetchData();
-  }, [fetchData]); // this is going to be an infinite loop -> since fetchData is a normal function and will be created from scratch every time componnet rerenders
+  }, [fetchData]); // this is going to be an infinite loop -> since fetchData is a normal function and will be created from scratch every time component rerenders
 }
 ```
 
@@ -104,7 +121,7 @@ function App() {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  }, []); //* empty dependency array is important
 
   useEffect(() => {
     fetchData();
