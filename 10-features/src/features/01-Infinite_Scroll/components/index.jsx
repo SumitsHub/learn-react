@@ -25,7 +25,7 @@ function InfiniteScroll() {
           setPage(prev => prev + 1);
         }
       });
-      // if node is available -> start oberving the node (last book element)
+      // if node is available -> start observing the node (last book element)
       if (node) observer.current.observe(node);
     },
     [loading, hasMore]
