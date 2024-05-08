@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import UseCallbackHook from './components/useCallbackHook/useCallbackHook';
+import UseContextHook from './components/useContextHook/useContextHook';
+import UseEffectHook from './components/useEffectHook/useEffectHook';
+import UseImperativeHandleHook from './components/useImperativeHandle/useImperativeHandleHook';
+import UseLayoutEffectHook from './components/useLayoutEffectHook/useLayoutEffectHook';
+import UseMemoHook from './components/useMemoHook/useMemoHook';
+import UseReducerHook from './components/useReducerHook/useReducerHook';
+import UseRefHook from './components/useRefHook/useRefHook';
+import UseStateHook from './components/useStateHook/useStateHook';
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="App">
+      {/* <UseStateHook />      */}
+      {/* <UseReducerHook /> */}
+      {/* <UseEffectHook /> */}
+      {/* <UseRefHook /> */}
+      {/* <UseLayoutEffectHook /> */}
+      {/* <UseImperativeHandleHook /> */}
+      {/* <UseContextHook /> */}
+      {/* <UseMemoHook /> */}
+      <UseCallbackHook />
+    </div>
+  );
 }
 
-export default App
+export default App;
