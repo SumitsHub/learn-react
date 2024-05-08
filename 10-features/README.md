@@ -1,1 +1,1 @@
-# Implmenting features in React
+# Implementing features in React

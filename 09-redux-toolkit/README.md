@@ -26,7 +26,7 @@ consists of few libraries
 
 #### react-redux
 
-- connects our app to redux
+- connects our react app to redux
 
 #### Setup Store
 
@@ -376,7 +376,7 @@ const CartItem = ({ id, img, title, price, amount }) => {
         <button
           className="remove-btn"
           onClick={() => {
-            dispatch(removeItem(id)); // paramter will go as action.payload in reducer
+            dispatch(removeItem(id)); // parameter will go as action.payload in reducer
           }}
         >
           remove
@@ -682,8 +682,8 @@ npm install axios
 
 ```js
 export const getCartItems = createAsyncThunk(
-  "cart/getCartItems",
-  async (name, thunkAPI) => {
+  "cart/getCartItems", // Unique string identifier for the action typ
+  async (name, thunkAPI) => { // Thunk function that returns a promise
     try {
       // console.log(name);
       // console.log(thunkAPI);
@@ -691,7 +691,7 @@ export const getCartItems = createAsyncThunk(
       // thunkAPI.dispatch(openModal());
       const resp = await axios(url);
 
-      return resp.data;
+      return resp.data;  // The resolved data will be the payload of the fulfilled action
     } catch (error) {
       return thunkAPI.rejectWithValue("something went wrong");
     }
