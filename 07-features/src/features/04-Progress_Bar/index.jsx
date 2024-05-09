@@ -27,6 +27,9 @@ export default function App() {
       <h4>Using progress tag</h4>
       <progress value={progress} max="100" style={{ width: '100%' }}></progress>
       <p>{progress}%</p>
+      <br />
+      <h4>Using hr tag</h4>
+      <hr id="hr" style={{ width: `${progress}%`, marginLeft: "0" }} />
     </div>
   );
 }
