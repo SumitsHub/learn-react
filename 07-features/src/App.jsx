@@ -1,10 +1,10 @@
 import './App.css';
-import Feature from './features/04-Progress_Bar';
+import Feature from "./features/06-dnd";
 
 function App() {
   return (
     <>
-      <h1>Implement in React</h1>
+      <h1 style={{ marginBottom: "10px" }}>Implement in React</h1>
       <Feature />
     </>
   );
