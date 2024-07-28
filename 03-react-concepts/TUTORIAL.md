@@ -1,15 +1,3 @@
-## Setup
-
-- traditional Vite app
-  - removed boilerplate
-  - provided some assets (css, data)
-    - just so we can focus on important stuff
-  - removed <StrictMode>, so it's less logs
-  
-#### Vite Docs
-
-(Vite)[https://vitejs.dev/]
-
 #### Vite Install
 
 ```sh

@@ -118,7 +118,7 @@ const Greeting = () => {
 ```js
 return <React.Fragment>...rest of the return</React.Fragment>;
 
-// shorthand -> Syntactic Sugar for React.Frangment
+// shorthand -> Syntactic Sugar for React.Fragment
 
 return <>...rest of the return</>;
 ```
@@ -159,6 +159,23 @@ return <input />;
   - opening tag in the same line as return or use ()
 
 ```js
+function Greeting() {
+  return <>
+    <div className="someValue">
+      <h3>hello people</h3>
+      <ul>
+        <li>
+          <a href="#">hello world</a>
+        </li>
+      </ul>
+    </div>
+    <h2>hello world</h2>
+    <input type="text" name="" id="" />
+  </>;
+}
+
+// OR
+
 function Greeting() {
   return (
     <>
@@ -373,7 +390,7 @@ const Author = () => (
 
 - external libraries use inline css, so if you want to make some changes, reference the library docs and Elements tab from devtools
 
-- alternative option for inline style -> creating seperate object for style
+- alternative option for inline style -> creating separate object for style
 
 ```js
 const Author = () => {
