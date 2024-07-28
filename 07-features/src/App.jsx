@@ -1,5 +1,5 @@
 import './App.css';
-import Feature from "./features/06-dnd";
+import Feature from "./features/07-msw";
 
 function App() {
   return (
