@@ -503,7 +503,6 @@ const Book = props => {
 
 #### Access Props - Multiple Approaches
 
-- no need for all the props.propName
 - destructure inside component
 
 ```js
@@ -520,7 +519,6 @@ const Book = props => {
 ```
 
 - destructure in function parameters (in our case props)
-- if you have console.log(props) - it won't be defined
 
 ```js
 const Book = ({ img, title, author }) => {
@@ -1206,8 +1204,6 @@ import Book from "./Book";
 #### Local Images (src folder)
 
 - better performance because optimized
-- add one more book to array
-- download all three images (rename)
 - setup images folder in the src
 - import all three images in the books.js
 - set image property equal to import

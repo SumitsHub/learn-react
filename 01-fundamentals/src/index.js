@@ -8,4 +8,4 @@ import EventExample from "./EventExample";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<EventExample />);
+root.render(<BookList />);
