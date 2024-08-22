@@ -8,7 +8,8 @@ import './App.css';
 // import UseReducerHook from './components/useReducerHook/useReducerHook';
 // import UseRefHook from './components/useRefHook/useRefHook';
 // import UseStateHook from "./components/useStateHook/useStateHook";
-import UseTransition from "./components/useTransitionHook";
+// import UseTransition from "./components/useTransitionHook";
+import UseDeferredValue from "./components/useDeferredValue/UseDeferredValue";
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
       {/* <UseContextHook /> */}
       {/* <UseMemoHook /> */}
       {/* <UseCallbackHook /> */}
-      <UseTransition />
+      {/* <UseTransition /> */}
+      <UseDeferredValue />
     </div>
   );
 }
