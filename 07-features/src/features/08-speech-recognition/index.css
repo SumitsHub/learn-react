@@ -1,0 +1,79 @@
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.listening-indicator {
+  color: green;
+  margin-top: 10px;
+  animation: blink 1s infinite;
+}
+
+.listen-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.listen-button:hover {
+  background-color: #0056b3; /* Darker blue for hover effect */
+}
+
+.listen-button:active {
+  background-color: #004494; /* Even darker blue on active state */
+}
+
+.toggle-button {
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-button:hover {
+  background-color: #004494;
+}
+
+.transcript-box {
+  margin-top: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f7f9fc, #ffffff); /* Soft gradient */
+  border-radius: 10px;
+  border: 1px solid #e1e8f0;
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: all 0.3s ease; /* Smooth transition for any changes */
+}
+
+/* Optional: Add a hover effect for better interaction */
+.transcript-box:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-color: #d1e2f3;
+}
+
+/* Optional: Increase spacing for better readability */
+.transcript-box p {
+  margin: 0;
+  word-wrap: break-word; /* Ensure text breaks properly if it's too long */
+  white-space: pre-wrap; /* Preserve spaces and line breaks */
+}
