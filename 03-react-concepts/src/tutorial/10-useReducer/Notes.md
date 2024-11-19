@@ -1,8 +1,5 @@
 
 #### useReducer
-
-- it's the complete file from 03-useState-array
-
 Challenge
 
 - let's add reset functionality

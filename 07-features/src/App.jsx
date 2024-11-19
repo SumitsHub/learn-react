@@ -1,5 +1,5 @@
 import './App.css';
-import Feature from "./features/07-msw";
+import Feature from "./features/08-speech-recognition/index";
 
 function App() {
   return (

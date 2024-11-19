@@ -8,7 +8,7 @@ const LowerState = () => {
 
   // const value = slowFunction(); // this will take few seconds to do the computation and will block everything else till then
   // SOLUTION - use useMemo() hook to get memoised value
-  const value = useMemo(() => slowFunction(), []); // this will execute the slow function only once, empty dependency array
+  const value = useMemo(slowFunction, []); // this will execute the slow function only once, empty dependency array
   console.log(value);
 
   const removePerson = useCallback(

@@ -18,9 +18,9 @@ const MyComponent = React.memo(function MyComponent(props) {
 - React uses "Object.is" to compare props
 - Use optional prop 'arePropsEqual' which is callback function accepting 2 args, previous props and new props and returns boolean result of comparison i.e. true or false
 
-- Gotcha with memo -> when we pass function as prop to component, then memoised component will also rerender if parent component rerenders
+- Gotcha with memo -> when we pass 'function' as prop to component, then memoised component will also rerender if parent component rerenders
 - Reason -> every time component rerenders, functions get's created from scratch, so indirectly props to memoised component gets changed and forces component to rerender
-- Fix -> use of useCallback hook, see below
+- Fix -> use of 'useCallback' hook, see below
 
 ## UseCallback
 
@@ -34,7 +34,7 @@ Use useCallback when:
 01. You need to pass a callback function to child components.
 02. You want to optimize performance by preventing unnecessary re-renders of child components due to changes in the function reference.
 03. The callback function depends on variables from the component's scope, and you want to ensure that its reference remains stable between renders.
-4.  
+4. When function needs to be added as dependency in useEffect
 - Here is an example of how you might use useCallback:
 
 ```js
