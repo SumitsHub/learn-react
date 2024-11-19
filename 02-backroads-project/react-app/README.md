@@ -6,7 +6,7 @@ Application Goal - Converting html project to react
 - react-app - working react application
   - navigate to the folder
   - run 'npm install'
-  - once the dependencies are installed run 'npm start'
+  - run 'npm start'
 
 
 #### SRC Folder (boilerplate)
@@ -318,7 +318,7 @@ export default Services;
   - SocialLink.js
   - PageLink.js
 
-#### Continuous Deployment
+#### Continuous Deployment with Netlify
 
 - fix warnings (About Section)
 
@@ -330,7 +330,7 @@ export default Services;
     - Mac : rm -rf .git
     - Windows : rmdir -Force -Recurse .git
     - Windows : rd /s /q .git
-      Windows commands were shared by students and I have not personally tested them.
+      
   - setup new repo
     - git init - create an empty git repository
     - git add - adds new or changed files in your working directory to the Git staging area

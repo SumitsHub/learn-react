@@ -1,8 +1,8 @@
 /**
  * useRef use cases -
- *  1. Referencing to DOM element
- *  2. Setting focus of input by using ref attribute to input tag
- *  3. Using value that will be persistent across rerenders like an instance of Intersection Observer
+ *  1. Referencing to DOM element - (avoid using document.getElement API methods to reference elements in React)
+ *  2. Setting 'focus' of input by using ref attribute to input tag, clicking element programmatically, reset form element
+ *  3. Using value that will be persistent across rerenders like an instance of an "Intersection Observer", timer id, etc
  *  4. Storing reference of the scrollbar position across re-renders
  */
 

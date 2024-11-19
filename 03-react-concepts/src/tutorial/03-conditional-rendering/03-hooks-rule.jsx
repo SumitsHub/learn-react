@@ -16,8 +16,8 @@ const Example = () => {
   if (condition) {
     return <h2>Hello There</h2>;
   }
-  // this will also fail -> beacause we are returning before this line reaches AND even if you somehow set condition to false then also it will throw an error
-  // Error: Rendered more hooks than during the previous render -> remember useEffect is a hook
+  // this will also fail -> because we are returning before this line reaches AND even if you somehow set condition to false then also it will throw an error
+  // Error: Rendered more hooks than during the previous render -> remember 'useEffect' is a hook
 
   // useEffect(() => {
   //   console.log("hello there");

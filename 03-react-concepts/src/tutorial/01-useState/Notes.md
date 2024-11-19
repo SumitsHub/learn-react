@@ -90,8 +90,8 @@ There are a few ways that you can trigger a re-render in a React component:
 
 - starts with "use" (both built-in React and custom hooks)
 - can be invoked inside function/component body or inside custom hook only
-- don't call hooks conditionally (cover later)
-- set functions don't update state immediately (cover later) - asynchronous state update
+- don't call hooks conditionally - we can't
+- set functions don't update state immediately - asynchronous state update
 
 
 ### Automatic Batching

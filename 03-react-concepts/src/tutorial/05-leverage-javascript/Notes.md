@@ -2,8 +2,6 @@
 
 [Javascript Nuggets -Optional Chaining](https://www.youtube.com/watch?v=PuEGrylM1x8&list=PLnHJACx3NwAfRUcuKaYhZ6T5NRIpzgNGJ&index=12&t=254s)
 
-/tutorial/05-leverage-javascript/starter
-
 Setup Challenge
 
 - take a look at the people in array in data.js
@@ -76,7 +74,7 @@ export function Person({ name, nickName = 'shakeAndBake', images }) {
 }
 ```
 
-#### Default Values - Vanilla JS (Optional)
+#### Default Values - Vanilla JS
 
 In JavaScript, when defining a function, you can specify default values for its parameters. This means that if a caller of the function does not provide a value for a particular parameter, the default value will be used instead. Default parameters are defined by assigning a value to the parameter in the function definition.
 
@@ -100,7 +98,7 @@ function add(x = 0, y = 0) {
 
 Now, if we call add(3), the function will return 3, because the default value of 0 is used for the y parameter.
 
-#### Optional Chaining - Vanilla JS (Optional)
+#### Optional Chaining - Vanilla JS
 
 n JavaScript, the optional chaining operator (?.) is a new feature that allows you to access properties of an object without worrying about whether the object or the property is null or undefined. It's a shorthand for a common pattern of checking for null or undefined before accessing an object's property.
 

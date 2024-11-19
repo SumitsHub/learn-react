@@ -1,4 +1,4 @@
-import Concept from './tutorial/02-useEffect/05-cleanup-function';
+import Concept from "./tutorial/06-forms/06-event-propogation";
 
 function App() {
   return (

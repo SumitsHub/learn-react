@@ -4,7 +4,7 @@
 
 - form can be submitted using button click (onClick handler) or using onSubmit handler to form which gets invoked on hitting enter on the form elements
 - You can use button type='submit' to be more specific inside form, without type also it works
-- if using onClick and onSubmit both event listeners -> both get triggered, onClick get triggered first (in all cases) - Event Propogation -> Bubble Phase
+- if using onClick and onSubmit both event listeners -> both get triggered, onClick get triggered first (in all cases) - Event Propagation -> Bubble Phase
 - if there are multiple buttons inside form -> only first button acts as submit button even if you add type=submit to other button
 - Example code -
 

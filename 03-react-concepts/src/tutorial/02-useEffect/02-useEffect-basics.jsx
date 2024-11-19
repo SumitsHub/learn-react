@@ -17,7 +17,7 @@ const UseEffectBasics = () => {
   // });
 
   // following useEffect will be called only on initial render, as it has empty dependency array
-  // it is similar to componnetDidMount() lifecycle method of class based component
+  // it is similar to componentDidMount() lifecycle method of class based component
   useEffect(() => {
     console.log("hello from useEffect");
   }, []);
