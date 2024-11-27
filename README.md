@@ -5,6 +5,7 @@ Table of contents
 2. Event Pooling in React
 3. Reconciliation in React
 4. Hydration
+5. Event delegation
 
 ## 01 - Synthetic Events in React
 - SyntheticEvent is a cross-browser wrapper around the browser's native event system.
@@ -116,5 +117,64 @@ Example:
 
 // React hydrates it on the client
 ReactDOM.hydrate(<App />, document.getElementById('root'));
+
+```
+
+## 05 - Event Delegation
+
+### What is Event Delegation?
+Event delegation is a technique in JavaScript where a single event listener is attached to a parent element to handle events triggered by its child elements. This is achieved using event bubbling, where events propagate from the target element (where the event occurred) up through its ancestors in the DOM hierarchy.
+
+### Why Use Event Delegation?
+- Efficiency: Attaching a single listener to a parent element is more efficient than attaching individual listeners to multiple child elements.
+- Dynamic Content Handling: Delegation allows you to manage events for dynamically added elements without needing to reattach event listeners.
+
+
+### Event Delegation in React
+React leverages event delegation under the hood for its synthetic events. Instead of attaching individual event listeners to each element, React attaches a single listener to the root of the DOM container (usually document or the root element). This makes event management efficient, even in large applications.
+
+React’s synthetic events wrap native events to provide cross-browser compatibility, and React handles event delegation automatically.
+
+#### Example: Event Delegation in Vanilla JavaScript
+```html
+<div id="parent">
+  <button class="child">Button 1</button>
+  <button class="child">Button 2</button>
+</div>
+
+<script>
+  document.getElementById('parent').addEventListener('click', (event) => {
+    if (event.target.classList.contains('child')) {
+      console.log(`Button clicked: ${event.target.textContent}`);
+    }
+  });
+</script>
+
+```
+Here, a single click event listener on #parent manages clicks on its .child buttons.
+
+
+#### Example: Event Delegation in React
+In React, event delegation is implemented implicitly. However, you can structure your code to take advantage of this behavior:
+
+```jsx
+import React from 'react';
+
+function App() {
+  const handleClick = (event) => {
+    if (event.target.tagName === 'BUTTON') {
+      console.log(`Button clicked: ${event.target.textContent}`);
+    }
+  };
+
+  return (
+    <div onClick={handleClick}>
+      <button>Button 1</button>
+      <button>Button 2</button>
+    </div>
+  );
+}
+
+export default App;
 
 ```
