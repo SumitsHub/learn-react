@@ -4,6 +4,7 @@ Table of contents
 1. Synthetic Events in React
 2. Event Pooling in React
 3. Reconciliation in React
+4. Hydration
 
 ## 01 - Synthetic Events in React
 - SyntheticEvent is a cross-browser wrapper around the browser's native event system.
@@ -73,7 +74,7 @@ Reconciliation is the process through which React updates the DOM to match the s
 
 - Diffing Algorithm: React uses a highly efficient diffing algorithm to compare the current Virtual DOM tree with the previous one. This process is known as the diffing phase. React identifies what has changed by comparing the new Virtual DOM with the old one, down to the individual nodes.
 
-- Patch Process: After identifying the changes, React applies only the necessary updates to the real DOM. This process is called reconciliation. Instead of re-rendering the entire DOM, React selectively updates only the parts that have changed. This minimizes the amount of work the browser has to do, which improves performance.
+- Patch Process: After identifying the changes, React applies only the necessary updates to the real DOM. This process is called 'reconciliation'. Instead of re-rendering the entire DOM, React selectively updates only the parts that have changed. This minimizes the amount of work the browser has to do, which improves performance.
 
 - Keys: In lists, React uses keys to identify which items have changed, been added, or removed. Keys help React make these updates more efficiently during reconciliation by providing a stable identity for each item in a list. This way, React can match the Virtual DOM nodes correctly and perform minimal DOM manipulation.
 
@@ -98,3 +99,22 @@ Updates the real DOM to add just the new item, leaving the rest of the list unto
 #### Conclusion:
 Reconciliation is a core concept in React that optimizes updates to the DOM. By maintaining a Virtual DOM and using a diffing algorithm, React ensures that it performs the minimal necessary changes to the actual DOM, leading to more efficient and faster updates. This is one of the reasons React is known for its performance, especially in applications with complex user interfaces.
 
+
+
+## 04 - Hydration (SSR term)
+Hydration refers to the process of attaching React’s event listeners and functionality to server-rendered HTML on the client side. It occurs in applications that utilize Server-Side Rendering (SSR) or frameworks like Next.js.
+
+### Why Hydration? 
+When HTML is pre-rendered on the server and sent to the client, the browser displays the content but lacks the interactive functionality. Hydration is React’s way of adding interactivity by "rehydrating" the static HTML with its event listeners, making the app dynamic again.
+
+Example:
+```jsx
+// HTML from server
+<div id="root">
+  <button>Click Me</button>
+</div>
+
+// React hydrates it on the client
+ReactDOM.hydrate(<App />, document.getElementById('root'));
+
+```
